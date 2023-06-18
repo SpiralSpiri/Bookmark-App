@@ -1,0 +1,576 @@
+/* insert fonts */
+
+@font-face {
+  font-family: easyjet_rounded_bookRg;
+  src: url(fonts/easyjet_rounded_book-webfont.woff);
+}
+
+/* global styles */
+body {
+  background-color: #FFFFFF;
+  margin: 0px;
+}
+
+h1 {
+  color: #f2f2f2;
+  text-align: center;
+  background-color: #f60;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  font-family: 'easyjet_rounded_bookRg', Arial, Verdana, Tahoma, Georgia, sans-serif;
+  padding: 16px 0px;
+  margin: 0px;
+}
+
+h2 {
+  color: #000;
+  text-align: left;
+  font-size: 24px;
+  line-height: 24px;
+  font-family: 'easyjet_rounded_bookRg', Arial, Verdana, Tahoma, Georgia, sans-serif;
+  padding: 16px 0px;
+  margin: 0px;
+}
+
+p {
+  color: #000;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: 'easyjet_rounded_bookRg', Arial, Verdana, Tahoma, Georgia, sans-serif;
+  margin: 0px;
+  padding: 0px 0px 16px;
+}
+
+label {
+  color: #333;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  font-family: 'easyjet_rounded_bookRg', Arial, Verdana, Tahoma, Georgia, sans-serif;
+}
+
+button {
+  font-size: 16px;
+  font-family: "easyjet_rounded_bookRg", Arial, Verdana, Tahoma, Georgia, sans-serif;
+  font-weight: 400;
+  margin-top: 0px;
+  padding: 11px 16px;
+  border-radius: 4px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  border: 2px solid;
+  cursor: pointer;
+}
+
+button.default {
+  color: #fff;
+  border-color: #f60;
+  background-color: #f60;
+}
+
+button.default:hover:not(:disabled) {
+  border-color: #ff751a;
+  background-color: #ff751a;
+  border: 2px solid;
+}
+
+button.dark {
+  color: #fff;
+  border-color: #000;
+  background-color: #000;
+}
+
+button.dark:hover:not(:disabled) {
+  border-color: #000;
+  background-color: #000;
+}
+
+/* global pop-in animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* global container */
+.global-bk-ctn {
+  margin: 0px auto;
+  position: relative;
+}
+
+/* bookmark navigation */
+
+#bk-nav {
+  position: sticky;
+  top: 0px;
+  background: #FFF;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 0px;
+  padding: 16px 0px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+
+/* bookmark form */
+.bk-form {
+  display: none;
+}
+
+
+/* bookmark form create state */
+.bk-form.create .bk-edit {
+  display: none !important;
+}
+
+/* bookmark form edit state */
+.bk-form.edit .bk-create {
+  display: none !important;
+}
+
+/* bookmark form active*/
+.bk-form.active {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  animation: fade-in .3s;
+}
+
+.bk-form-ctn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 400px;
+  width: 100%;
+  padding: 32px;
+  margin: 0px auto;
+  background: #FFF;
+  position: relative;
+}
+
+/* bookmark form - Form*/
+#bkForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+#bkForm span {
+  width: 100%;
+  position: relative;
+}
+
+/* bookmark form - default input & label*/
+#bkForm label {
+  display: block;
+  background: white;
+  position: absolute;
+  padding: 0px 8px;
+  margin: 0px 12px;
+  top: -6px;
+}
+
+#bkForm input[type="text"] {
+  width: 100%;
+  height: 48px;
+  line-height: 1px;
+  border-radius: 4.8px;
+  border-width: thin;
+  padding: 16px 40px 16px 20px;
+  outline: 0px;
+  background-color: #fff;
+}
+
+#bkForm input[type="text"]:focus {
+  border-width: thin;
+}
+
+/*remove id*/
+#bkForm #bkId {
+  display: none;
+}
+
+/*remove auto fill background from default browsers */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px #FFF inset !important;
+}
+
+/* bookmark form - close CTA*/
+.bk-form-ctn .bkForm-close-cta {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border-radius: 999rem;
+  color: #f60;
+  border: 1px solid;
+  height: 40px;
+  width: 40px;
+  background: none;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.bk-form-ctn .bkForm-close-cta svg {
+  padding: 12px;
+  width: 11px;
+  height: 11px;
+}
+
+.bk-form-ctn .bkForm-close-cta:hover:not(:disabled) {
+  background-color: #fff;
+  border: 1px solid;
+}
+
+/* bookmark form - Submit CTA*/
+#bkForm .bkForm-btn {
+  font-size: 16px;
+  font-family: "easyjet_rounded_bookRg", Arial, Verdana, Tahoma, Georgia, sans-serif;
+  font-weight: 400;
+  height: 4em;
+  margin-top: 0px;
+  min-height: 48px;
+  padding: 11px 16px;
+  border: 2px solid;
+  border-radius: 4px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  cursor: pointer;
+}
+
+#bkForm .bkForm-btn.default-100 {
+  color: #fff;
+  border-color: #f60;
+  background-color: #f60;
+  width: 100%;
+}
+
+#bkForm .bkForm-btn.default-100[type="submit"]:hover:not(:disabled) {
+  border-color: #ff751a;
+  background-color: #ff751a;
+}
+
+
+#bkForm .bkForm-btn.default-70 {
+  color: #fff;
+  border-color: #f60;
+  background-color: #f60;
+  width: 70%;
+}
+
+#bkForm .bkForm-btn.default-70[type="submit"]:hover:not(:disabled) {
+  border-color: #ff751a;
+  background-color: #ff751a;
+}
+
+
+#bkForm .bkForm-btn.dark-30 {
+  color: #fff;
+  border-color: #000;
+  background-color: #000;
+  width: 30%;
+}
+
+#bkForm .bkForm-btn.dark-30[type="submit"]:hover:not(:disabled) {
+  border-color: #000;
+  background-color: #000;
+}
+
+#bkForm .bkForm-btn[disabled] {
+  border-color: #C0C0C0;
+  background-color: #C0C0C0;
+  cursor: default;
+}
+
+#bkForm .bkForm-btn[disabled]:hover {
+  border-color: #C0C0C0;
+  background-color: #C0C0C0;
+}
+
+/* Booking Form - bk Edit Submit Journey CTA */
+
+#bkForm>span.bk-edit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+
+
+/* error alerts */
+.error-alert-ctn {
+  display: none;
+}
+
+.error-active .error-alert-ctn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: #b00020;
+  gap: 8px;
+  padding: 16px 0px 0px;
+}
+
+.error-msg {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  font-family: 'easyjet_rounded_bookRg', Arial, Verdana, Tahoma, Georgia, sans-serif;
+}
+
+#bkForm .error-active label {
+  color: #b00020;
+}
+
+#bkForm .error-active input[type="text"] {
+  border-color: #b00020;
+  border-width: 2px;
+}
+
+/* bookmark main contain container */
+.bk-main-ctn {
+  max-width: 600px;
+  margin: 0px auto;
+  padding: 0px 32px;
+}
+
+@media only screen and (max-width: 768px) {
+  .bk-main-ctn {
+    padding: 0px 16px;
+  }
+}
+
+
+.bk-main-ctn h2 {
+  text-align: center;
+  margin: 16px 0px;
+}
+
+/*bookmark grid */
+
+#bkGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  word-break: break-all;
+}
+
+#bkGrid .bk-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #333;
+  font-family: 'easyjet_rounded_bookRg', Arial, Verdana, Tahoma, Georgia, sans-serif;
+  padding: 32px 0px;
+}
+
+#bkGrid .bk-bookmark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+#bkGrid .bk-item .bk-name {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+  max-width: 30ch;
+}
+
+@media only screen and (max-width: 550px) {
+  #bkGrid .bk-item .bk-name {
+    max-width: 16ch;
+  }
+}
+
+
+#bkGrid .bk-item .bk-name h3 {
+  margin: 0px;
+  font-size: 16px;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 16px 0px;
+}
+
+#bkGrid span.bk-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+#bkGrid .bk-edit {
+  color: #fff;
+  font-size: 16px;
+  font-family: "easyjet_rounded_bookRg", Arial, Verdana, Tahoma, Georgia, sans-serif;
+  font-weight: 400;
+  margin-top: 0px;
+  padding: 11px 16px;
+  border-radius: 4px;
+  background-color: #000;
+  border: 2px solid;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#bkGrid .bk-edit:hover {
+  color: #fff;
+  border-color: #000;
+  background-color: #000;
+  border: 2px solid;
+}
+
+#bkGrid .bk-delete {
+  color: #fff;
+  font-size: 16px;
+  font-family: "easyjet_rounded_bookRg", Arial, Verdana, Tahoma, Georgia, sans-serif;
+  font-weight: 400;
+  margin-top: 0px;
+  padding: 11px 16px;
+  border-radius: 4px;
+  border-color: #e60000;
+  background-color: #e60000;
+  border: 2px solid;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#bkGrid .bk-delete {
+  color: #fff;
+  border-color: #e60000;
+  background-color: #e60000;
+  border: 2px solid;
+}
+
+#bkGrid .bk-favi {
+  width: 24px;
+  height: 24px;
+}
+
+/* Controls / Pagination */
+
+#bkControls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 32px 0px;
+}
+
+#bkControls button[disabled] {
+  border-color: #C0C0C0;
+  background-color: #C0C0C0;
+  border: none;
+}
+
+#bkControls button:hover[disabled] {
+  border-color: #C0C0C0;
+  background-color: #C0C0C0;
+  cursor: default;
+}
+
+
+#bkControls button {
+  min-width: 45px;
+  color: #fff;
+  border-color: #f60;
+  background-color: #f60;
+  border: 2px solid;
+}
+
+#bkControls button:hover:not(:disabled) {
+  border-color: #000;
+  background-color: #000;
+  border: 2px solid;
+}
+
+#bkControls button.active {
+  border-color: #000;
+  background-color: #000;
+  border: 2px solid;
+  cursor: default;
+}
+
+#bkControls button.active:hover:not(:disabled) {
+  border-color: #000;
+  background-color: #000;
+  border: 2px solid;
+}
+
+/* bookmark Confirmation */
+
+.bk-confirmation {
+  position: fixed;
+  width: 100%;
+  background: white;
+  bottom: 0;
+  animation: fade-in .3s;
+}
+
+.bk-confirmation-ctn {
+  max-width: 600px;
+  margin: 0px auto;
+  padding: 0px 16px;
+}
+
+.bk-confirm-ctn {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  gap: 16px;
+  width: 100%;
+  word-break: break-all;
+  margin: 16px auto 32px;
+}
+
+.bk-confirm-ctn a {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: 'easyjet_rounded_bookRg', Arial, Verdana, Tahoma, Georgia, sans-serif;
+  margin: 0px;
+  padding: 0px 0px 16px;
+  text-decoration: underline;
+}
+
+/* bookmark Confirmation - progress bar styling */
+/* container*/
+#bk-confirm-pbr {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  background-color: #ddd;
+  border-top: 1px solid #d8d8d8;
+}
+
+/* progress*/
+#bk-confirm-pbr .bk-confirm-prg {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: #f60;
+}

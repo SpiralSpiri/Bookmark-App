@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Bookmark JS App - GH</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="https://www.easyjet.com/ejcms/cache/fonts/easyjet_rounded_book-webfont.woff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="fetchBookmarks()">
+
+    <h1>Bookmark App</h1>
+
+    <div class="global-bk-ctn">
+        <div id="bk-nav">
+            <button class="dark" onclick="openBookmarkFormCreate()">Create new bookmark</button>
+        </div>
+
+        <div class="bk-main-ctn">
+            <h2 class="bkList-h2">Bookmark List:</h2>
+            <div class="bkList" id="bkGrid"></div>
+            <div class="bkPagination" id="bkControls"></div>
+        </div>
+    </div>
+
+    <div class="bk-form">
+        <div class="bk-form-ctn">
+            <span class="bk-create">
+                <h2>Create a new bookmark</h2>
+                <p>Input the bookmarks name and url below:</p>
+            </span>
+            <span class="bk-edit">
+                <h2>Edit existing bookmark</h2>
+                <p>Edit the bookmarks name and url below:</p>
+            </span>
+            <form id="bkForm">
+                <input id="bkId" value=""></input>
+                <span class="bkName-ctn">
+                    <label for="bkName">Bookmark Name: </label>
+                    <input type="text" id="bkName" name="bkName" placeholder="" oninput="validateBkName()">
+                    <div id="bkNameAlert" class="error-alert-ctn"></div>
+                </span>
+
+                <span class="bkURL-ctn">
+                    <label for="bkURL">Website URL:</label>
+                    <input type="text" id="bkURL" name="bkURL" placeholder="" oninput="validateBkURL()">
+                    <div id="bkURLAlert" class="error-alert-ctn"></div>
+                </span>
+                <span class="bk-create">
+                    <input class="bkForm-btn default-100" type="submit" value="Create Bookmark" id="bkSubmit">
+                </span>
+                <span class="bk-edit">
+                    <input class="bkForm-btn default-70" type="submit" value="Edit Bookmark" id="bkEdit">
+                    <input class="bkForm-btn dark-30" type="reset" value="Reset" id="bookmarkReset">
+                </span>
+            </form>
+
+            <button class="bkForm-close-cta" onclick="closeBookmarkForm()">
+                <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 16 16" focusable="false">
+                    <path
+                        d="M9.536 8l6.146-6.146A1.086 1.086 0 1014.145.318L8 6.464 1.854.318A1.086 1.086 0 00.318 1.854L6.464 8 .318 14.146a1.086 1.086 0 001.536 1.536L8 9.536l6.145 6.146a1.088 1.088 0 001.537-1.536L9.536 8z">
+                    </path>
+                </svg></button>
+        </div>
+    </div>
+
+    <script src="bookmarkJs.js"></script>
+</body>
+
+</html>
