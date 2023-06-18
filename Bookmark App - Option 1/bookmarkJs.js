@@ -72,9 +72,21 @@ function saveBookmark(e) {
 
             // store updated bookmarks in local storage  
             localStorage.setItem("bookmark", JSON.stringify(bkArray));
+            //Clear form after submit
+            document.getElementById("bkForm").reset();
+
+            //initialize bookmark list
+            fetchBookmarks();
+
+            //Remove Booking Form pop-up
+            document.querySelector(".bk-form").classList.remove("active");
+
+            //Remove Edit / Create state Form pop-up
+            document.querySelector(".bk-form").classList.remove("create");
+            document.querySelector(".bk-form").classList.remove("edit");
         }
     }
-    
+
     //Prevent from navigating to new URL
     e.preventDefault();
 }
